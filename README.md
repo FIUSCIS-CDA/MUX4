@@ -35,3 +35,27 @@ Y   |     1
 
 #### SEE ALSO
        qms(1), modclone(1)
+----------------------- MUX 1:4 Code vhdl      
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+
+entity oneXfour_demux is
+port(a0: in std_logic;
+	  sel: in std_logic_vector(1 downto 0);
+	  y0,y1,y2,y3: out std_logic);
+end oneXfour_demux;
+
+architecture Behavioral of oneXfour_demux is
+
+begin
+y0<= a0 when sel="00" else 'U'; 
+y1<= a0 when sel="01" else 'U';
+y2<= a0 when sel="10" else 'U';
+y3<= a0 when sel="11";
+
+
+end Behavioral;
+
+
